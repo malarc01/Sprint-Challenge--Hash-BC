@@ -23,8 +23,25 @@ def proof_of_work(last_proof):
     start = timer()
 
     print("Searching for next proof")
-    proof = 0
-    #  TODO: Your code here
+    proof = 21463934
+
+    string_encoded = str(last_proof).encode()
+    sha_hash = hashlib.sha256(string_encoded).hexdigest()
+    # last_proof
+
+    while valid_proof(sha_hash, proof) == False:
+        proof += 1
+    else:
+        proof += 2
+
+    # def get_last_five_digit(sha_hash):
+
+    #     if sha_hash[-5:] == last_proof:
+    #         return True
+    #     else:
+    #         return False
+
+        # print(string[-5:])
 
     print("Proof found: " + str(proof) + " in " + str(timer() - start))
     return proof
@@ -38,9 +55,25 @@ def valid_proof(last_hash, proof):
 
     IE:  last_hash: ...AE912345, new hash 12345E88...
     """
+    # print('||||||| valid_proof() running ||||')
 
-    # TODO: Your code here!
-    pass
+    string_encoded = str(proof).encode()
+    sha_hash = hashlib.sha256(string_encoded).hexdigest()
+
+    return sha_hash[:6] == last_hash[-6:]
+    # while proof[:6] != last_hash[-6:]:
+    #     string_encoded = str(proof).encode()
+    #     sha_hash = hashlib.sha256(string_encoded).hexdigest()
+    # else:
+    #     print('END')
+
+    # if last_hash[-5:] == proof[0:5]:
+    #     print('******Proof Validates ***** ')
+    #     return True
+    # else:
+    #     print('------Proof Not Valid ------')
+
+    #     return False
 
 
 if __name__ == '__main__':

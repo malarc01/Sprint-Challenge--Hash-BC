@@ -38,8 +38,8 @@ the blocks are proofs that contain things like transaction + proof work + hashes
 chain is the longest tranactions that is verfied through hashes.
 The data is organized with hashes.
 proof of work checks that the when it runs through the hashing algothrim it gets the correct proof.
-It protects the chain from attack because it can be verfied if the proof is correct and it order to manipulated you would have to be able to find that hash and create
-another block that from that hash. Only a attack is possible if you control 51% of the systems.
+It protects the chain from attack because it can be verfied if the proof is correct and it order to be manipulated you would have to be able to find that hash and create
+another block that from that hash. Only a attack is possible if you control 51% of the distrubuted systems.
 
 ## Project Set Up
 

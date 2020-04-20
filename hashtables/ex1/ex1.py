@@ -10,9 +10,20 @@ def get_indices_of_item_weights(weights, length, limit):
     ht = HashTable(16)
 
     if length == 1:
+        # print('***')
         return None
 
-    return None
+    for index, item in enumerate(weights):
+        hash_table_insert(ht, item, index)
+        # print('added to hashtable, item, index)
+
+    for item_in_list in range(len(weights)):
+        result = limit-weights[item_in_list]
+        value = hash_table_retrieve(ht, result)
+        if value != None:
+            output = (max(item_in_list, value),
+                      min(item_in_list, value))
+            return output
 
 
 def print_answer(answer):
